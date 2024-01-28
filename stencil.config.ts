@@ -1,7 +1,7 @@
 import { Config } from '@stencil/core';
 
 export const config: Config = {
-  namespace: '3s1t',
+  namespace: 'web-components-3s1t', // stencil namespace can't start with a number
   outputTargets: [
     {
       type: 'dist',
