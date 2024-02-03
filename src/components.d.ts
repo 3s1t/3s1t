@@ -20,6 +20,20 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface SimpleTable {
+        /**
+          * The first name
+         */
+        "first": string;
+        /**
+          * The last name
+         */
+        "last": string;
+        /**
+          * The middle name
+         */
+        "middle": string;
+    }
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -28,8 +42,15 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLSimpleTableElement extends Components.SimpleTable, HTMLStencilElement {
+    }
+    var HTMLSimpleTableElement: {
+        prototype: HTMLSimpleTableElement;
+        new (): HTMLSimpleTableElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "simple-table": HTMLSimpleTableElement;
     }
 }
 declare namespace LocalJSX {
@@ -47,8 +68,23 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface SimpleTable {
+        /**
+          * The first name
+         */
+        "first"?: string;
+        /**
+          * The last name
+         */
+        "last"?: string;
+        /**
+          * The middle name
+         */
+        "middle"?: string;
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
+        "simple-table": SimpleTable;
     }
 }
 export { LocalJSX as JSX };
@@ -56,6 +92,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "simple-table": LocalJSX.SimpleTable & JSXBase.HTMLAttributes<HTMLSimpleTableElement>;
         }
     }
 }
