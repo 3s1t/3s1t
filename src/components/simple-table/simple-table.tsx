@@ -1,31 +1,10 @@
-import { Component, Prop, h } from '@stencil/core';
-import { format } from '../../utils/utils';
-
+import { Component, h } from '@stencil/core';
 @Component({
   tag: 'simple-table',
   styleUrl: 'simple-table.css',
   shadow: true,
 })
 export class MyComponent {
-  /**
-   * The first name
-   */
-  @Prop() first: string;
-
-  /**
-   * The middle name
-   */
-  @Prop() middle: string;
-
-  /**
-   * The last name
-   */
-  @Prop() last: string;
-
-  private getText(): string {
-    return format(this.first, this.middle, this.last);
-  }
-
   render() {
     return (
       <table>
@@ -49,7 +28,7 @@ export class MyComponent {
           </tr>
           <tr>
             <td>3</td>
-            <td>Bob Johnson</td>
+            <td>Luke</td>
             <td>bob@example.com</td>
           </tr>
         </tbody>
