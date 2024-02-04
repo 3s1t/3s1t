@@ -1,36 +1,36 @@
 import { newSpecPage } from '@stencil/core/testing';
-import { MyComponent } from './simple-table';
+import { MyComponent } from './spreadsheet-3s1t';
 
-describe('simple-table', () => {
+describe('spreadsheet-3s1t', () => {
   it('renders', async () => {
     const { root } = await newSpecPage({
       components: [MyComponent],
-      html: '<simple-table></simple-table>',
+      html: '<spreadsheet-3s1t></spreadsheet-3s1t>',
     });
     expect(root).toEqualHtml(`
-      <simple-table>
+      <spreadsheet-3s1t>
         <mock:shadow-root>
           <div>
             Hello, World! I'm
           </div>
         </mock:shadow-root>
-      </simple-table>
+      </spreadsheet-3s1t>
     `);
   });
 
   it('renders with values', async () => {
     const { root } = await newSpecPage({
       components: [MyComponent],
-      html: `<simple-table first="Stencil" last="'Don't call me a framework' JS"></simple-table>`,
+      html: `<spreadsheet-3s1t first="Stencil" last="'Don't call me a framework' JS"></spreadsheet-3s1t>`,
     });
     expect(root).toEqualHtml(`
-      <simple-table first="Stencil" last="'Don't call me a framework' JS">
+      <spreadsheet-3s1t first="Stencil" last="'Don't call me a framework' JS">
         <mock:shadow-root>
           <div>
             Hello, World! I'm Stencil 'Don't call me a framework' JS
           </div>
         </mock:shadow-root>
-      </simple-table>
+      </spreadsheet-3s1t>
     `);
   });
 });

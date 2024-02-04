@@ -1,7 +1,7 @@
 import { Component, h } from '@stencil/core';
 @Component({
-  tag: 'simple-table',
-  styleUrl: 'simple-table.css',
+  tag: 'spreadsheet-3s1t',
+  styleUrl: 'spreadsheet-3s1t.css',
   shadow: true,
 })
 export class MyComponent {

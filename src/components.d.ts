@@ -20,7 +20,7 @@ export namespace Components {
          */
         "middle": string;
     }
-    interface SimpleTable {
+    interface Spreadsheet3s1t {
     }
 }
 declare global {
@@ -30,15 +30,15 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
-    interface HTMLSimpleTableElement extends Components.SimpleTable, HTMLStencilElement {
+    interface HTMLSpreadsheet3s1tElement extends Components.Spreadsheet3s1t, HTMLStencilElement {
     }
-    var HTMLSimpleTableElement: {
-        prototype: HTMLSimpleTableElement;
-        new (): HTMLSimpleTableElement;
+    var HTMLSpreadsheet3s1tElement: {
+        prototype: HTMLSpreadsheet3s1tElement;
+        new (): HTMLSpreadsheet3s1tElement;
     };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
-        "simple-table": HTMLSimpleTableElement;
+        "spreadsheet-3s1t": HTMLSpreadsheet3s1tElement;
     }
 }
 declare namespace LocalJSX {
@@ -56,11 +56,11 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
-    interface SimpleTable {
+    interface Spreadsheet3s1t {
     }
     interface IntrinsicElements {
         "my-component": MyComponent;
-        "simple-table": SimpleTable;
+        "spreadsheet-3s1t": Spreadsheet3s1t;
     }
 }
 export { LocalJSX as JSX };
@@ -68,7 +68,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
-            "simple-table": LocalJSX.SimpleTable & JSXBase.HTMLAttributes<HTMLSimpleTableElement>;
+            "spreadsheet-3s1t": LocalJSX.Spreadsheet3s1t & JSXBase.HTMLAttributes<HTMLSpreadsheet3s1tElement>;
         }
     }
 }
