@@ -1,38 +1,57 @@
-import { Component, h } from '@stencil/core';
+import { Component, State, h } from '@stencil/core';
+import * as revogrid from '@revolist/revogrid';
+
+interface Column {
+  prop: string;
+  name: string;
+  cellTemplate?: any;
+}
+
+interface Item {
+  name: string;
+  details: string;
+}
+
 @Component({
   tag: 'spreadsheet-3s1t',
   styleUrl: 'spreadsheet-3s1t.css',
   shadow: true,
 })
-export class MyComponent {
+export class Spreadsheet3s1t {
+  @State() columns: Column[] = [];
+  @State() items: Item[] = [];
+
+  componentDidLoad() {
+    const columns = [
+      { prop: 'name', name: 'First column' },
+      {
+        prop: 'details',
+        name: 'Second column',
+        cellTemplate: (createElement, props) => {
+          return createElement(
+            'div',
+            {
+              style: { backgroundColor: 'red' },
+              class: { 'inner-cell': true },
+            },
+            props.model[props.prop] || '',
+          );
+        },
+      },
+    ];
+    const items = [];
+    for (let i = 0; i < 10; i++) {
+      items.push({ name: 'New item', details: `Item ${i}` });
+    }
+    this.columns = columns;
+    this.items = items;
+  }
+
   render() {
     return (
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>John Doe</td>
-            <td>john@example.com</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Jane Smith</td>
-            <td>jane@example.com</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Luke</td>
-            <td>bob@example.com</td>
-          </tr>
-        </tbody>
-      </table>
+      <div>
+        <revo-grid class="grid-component" columns={this.columns} source={this.items}></revo-grid>
+      </div>
     );
   }
 }

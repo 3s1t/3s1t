@@ -1,10 +1,10 @@
 import { newSpecPage } from '@stencil/core/testing';
-import { MyComponent } from './spreadsheet-3s1t';
+import { Spreadsheet3s1t } from './spreadsheet-3s1t';
 
 describe('spreadsheet-3s1t', () => {
   it('renders', async () => {
     const { root } = await newSpecPage({
-      components: [MyComponent],
+      components: [Spreadsheet3s1t],
       html: '<spreadsheet-3s1t></spreadsheet-3s1t>',
     });
     expect(root).toEqualHtml(`
@@ -20,7 +20,7 @@ describe('spreadsheet-3s1t', () => {
 
   it('renders with values', async () => {
     const { root } = await newSpecPage({
-      components: [MyComponent],
+      components: [Spreadsheet3s1t],
       html: `<spreadsheet-3s1t first="Stencil" last="'Don't call me a framework' JS"></spreadsheet-3s1t>`,
     });
     expect(root).toEqualHtml(`
