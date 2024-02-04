@@ -1,5 +1,4 @@
 import { Component, State, h } from '@stencil/core';
-import * as revogrid from '@revolist/revogrid';
 
 interface Column {
   prop: string;
@@ -21,7 +20,8 @@ export class Spreadsheet3s1t {
   @State() columns: Column[] = [];
   @State() items: Item[] = [];
 
-  componentDidLoad() {
+  connectedCallback() {
+    console.log('Spreadsheet Connected');
     const columns = [
       { prop: 'name', name: 'First column' },
       {
@@ -48,6 +48,7 @@ export class Spreadsheet3s1t {
   }
 
   render() {
+    console.log("Spreadsheet Render")
     return (
       <div>
         <revo-grid class="grid-component" columns={this.columns} source={this.items}></revo-grid>
