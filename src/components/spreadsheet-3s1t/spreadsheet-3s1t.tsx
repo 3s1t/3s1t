@@ -6,7 +6,7 @@ interface Column {
   cellTemplate?: (item: any) => any;
 }
 
-interface Item {
+interface Row {
   name: string;
   details: string;
 }
@@ -21,13 +21,15 @@ export class Spreadsheet3s1t {
     { prop: 'name', name: 'Name' },
     { prop: 'details', name: 'Details' },
   ];
-  @State() items: Item[] = [
+  @State() rows: Row[] = [
     { name: 'Item 1', details: 'Details of Item 1' },
     { name: 'Item 2', details: 'Details of Item 2' },
     { name: 'Item 3', details: 'Details of Item 3' },
   ];
 
   renderTable() {
+    console.log('Render');
+    console.log('Rows: ', this.rows);
     return (
       <table>
         <thead>
@@ -38,11 +40,24 @@ export class Spreadsheet3s1t {
           </tr>
         </thead>
         <tbody>
-          {this.items.map(item => (
+          {this.rows.map((row, rowIndex) => (
             <tr>
               {this.columns.map(column => (
                 <td>
-                  <input type="text" value={item[column.prop]} onInput={(event: any) => (item[column.prop] = event.target.value)} />
+                  <input
+                    type="text"
+                    value={row[column.prop]}
+                    onInput={(event: any) => {
+                      const updatedRow: Row = { ...row, [column.prop]: event.data };
+                      const updatedRows = [
+                        ...this.rows.slice(0, rowIndex), // rows before the edited row
+                        updatedRow, // updated row
+                        ...this.rows.slice(rowIndex + 1), // rows after the edited row
+                      ];
+
+                      this.rows = updatedRows;
+                    }}
+                  />
                 </td>
               ))}
             </tr>
