@@ -1,6 +1,6 @@
 {
   "name": "3s1t",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "3s1t library of web components",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
