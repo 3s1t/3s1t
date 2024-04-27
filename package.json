@@ -26,7 +26,6 @@
     "generate": "stencil generate"
   },
   "dependencies": {
-    "@revolist/revogrid": "^3.7.0",
     "@stencil/core": "^4.7.0",
     "@stencil/store": "^2.0.13"
   },
