@@ -70,6 +70,14 @@ export class Spreadsheet3s1t {
     return (
       <div>
         <h3>Hello from 3s1t</h3>
+        <button>
+          <ion-icon name="add-circle-outline"></ion-icon>
+          Add Row
+        </button>
+        <button>
+          <ion-icon name="add-circle-outline"></ion-icon>
+          Add Column
+        </button>
         <section>{this.renderTable()}</section>
       </div>
     );
