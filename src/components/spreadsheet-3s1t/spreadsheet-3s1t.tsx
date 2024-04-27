@@ -1,4 +1,4 @@
-import { Component, State, h } from '@stencil/core';
+import { Component, Prop, State, h } from '@stencil/core';
 
 interface Column {
   prop: string;
@@ -25,6 +25,7 @@ export class Spreadsheet3s1t {
     { name: 'Item 2', details: 'Details of Item 2' },
     { name: 'Item 3', details: 'Details of Item 3' },
   ];
+  @Prop() data: string;
 
   handleInput(event: Event, rowIndex: number, propName: string) {
     console.log('Update Cell', { event, rowIndex, propName });
@@ -66,6 +67,10 @@ export class Spreadsheet3s1t {
     );
   }
 
+  renderRawData() {
+    return <pre>{this.data}</pre>;
+  }
+
   render() {
     return (
       <div>
@@ -78,7 +83,10 @@ export class Spreadsheet3s1t {
           <ion-icon name="add-circle-outline"></ion-icon>
           Add Column
         </button>
+        <h4>Spreadsheet</h4>
         <section>{this.renderTable()}</section>
+        <h4>Data in Spreadsheet</h4>
+        <section>{this.renderRawData()}</section>
       </div>
     );
   }
